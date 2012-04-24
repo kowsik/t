@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>T by sferik</title>
-    
+
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -51,7 +51,7 @@ or send direct messages via the CLI.</p>
 <p>Once you have registered your application, you'll be given a consumer key and
 secret, which you can use to authorize your Twitter account.</p>
 
-<pre><code>t authorize --consumer-key YOUR_CONSUMER_KEY --consumer-secret YOUR_CONSUMER_SECRET
+<pre><code>t authorize -c YOUR_CONSUMER_KEY -s YOUR_CONSUMER_SECRET
 </code></pre>
 
 <p>This will open a new browser window where you can authenticate to Twitter and
@@ -73,7 +73,7 @@ gem
 <code>set</code> subcommand, passing either just the username, if it's unambiguous, or the
 username and consumer key pair, like so:</p>
 
-<pre><code>t set default sferik thG9EfWoADtIr6NjbL9ON
+<pre><code>t set default sferik UDfNTpOz5ZDG4a6w7dIWj
 </code></pre>
 
 <p>Account information is stored in the YAML-formatted file <code>~/.trc</code>.</p>
@@ -143,18 +143,18 @@ type <code>t help TASK</code> to get help for a specific command.</p>
 <h3>
 <a name="following"></a>Create a list that contains today's date in the name</h3>
 
-<pre><code>date "+following-%Y-%m-%d" | xargs t list create
+<pre><code>t list create `date "+following-%Y-%m-%d"`
 </code></pre>
 
 <h3>Add everyone you're following to a list</h3>
 
-<pre><code>t followings | xargs t list add following-`date "+%Y-%m-%d"`
+<pre><code>t followings | xargs t list add `date "+following-%Y-%m-%d"`
 </code></pre>
 
 <h3>
 <a name="members"></a>Display members of a list</h3>
 
-<pre><code>t members following-`date "+%Y-%m-%d"`
+<pre><code>t members `date "+following-%Y-%m-%d"`
 </code></pre>
 
 <h3>Count the number of Twitter employees</h3>
@@ -313,6 +313,6 @@ time of a major release, support for that Ruby version may be dropped.</p>
       </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
-    
+
   </body>
 </html>
