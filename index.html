@@ -147,18 +147,18 @@ so those characters are not interpreted by your shell.</p>
 <h3>
 <a name="following"></a>Create a list that contains today's date in the name</h3>
 
-<pre><code>t list create `date "+following-%Y-%m-%d"`
+<pre><code>t list create following-`date "+%Y-%m-%d"`
 </code></pre>
 
 <h3>Add everyone you're following to a list</h3>
 
-<pre><code>t followings | xargs t list add `date "+following-%Y-%m-%d"`
+<pre><code>t followings | xargs t list add following-`date "+%Y-%m-%d"`
 </code></pre>
 
 <h3>
 <a name="list-members"></a>Display members of a list</h3>
 
-<pre><code>t list members `date "+following-%Y-%m-%d"`
+<pre><code>t list members following-`date "+%Y-%m-%d"`
 </code></pre>
 
 <h3>Count the number of Twitter employees</h3>
